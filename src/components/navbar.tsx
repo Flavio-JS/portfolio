@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
+import { Menu, Moon, Sun, X } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
@@ -37,17 +38,15 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Botão de Tema */}
-        <button
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className={cn(
-            "p-2 rounded-full transition-colors",
-            "hover:cursor-pointer hover:text-primary"
-          )}
-          aria-label="Alternar tema"
-        >
-          {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-        </button>
+        {/* Botão de Tema com Switch */}
+        <div className="items-center gap-4 hidden md:flex">
+          <Sun size={20} />
+          <Switch
+            checked={theme === "dark"}
+            onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
+          />
+          <Moon size={20} />
+        </div>
 
         {/* Mobile Menu Button */}
         <button
@@ -76,6 +75,19 @@ export default function Navbar() {
                 </li>
               )
             )}
+            <li>
+              {/* Botão de Tema */}
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className={cn(
+                  "rounded-full transition-colors",
+                  "hover:cursor-pointer hover:text-primary"
+                )}
+                aria-label="Alternar tema"
+              >
+                {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+              </button>
+            </li>
           </ul>
         </div>
       )}
