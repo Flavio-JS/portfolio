@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,8 +20,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
-      <ThemeProvider>
-        <body className={inter.className}>
+      <body className={inter.className}>
+        <ThemeProvider>
           <Navbar />
           {children}
           <footer className="bg-gray-900 text-white py-8">
@@ -32,8 +32,8 @@ export default function RootLayout({
               </p>
             </div>
           </footer>
-        </body>
-      </ThemeProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

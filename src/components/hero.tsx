@@ -25,7 +25,7 @@ export default function Hero() {
               Flávio JS
             </span>
           </h1>
-          <p className="text-xl text-gray-600 mb-6">
+          <p className="text-xl text-muted-foreground mb-6">
             Desenvolvedor Front-end especializado em criar interfaces modernas,
             limpas e funcionais.
           </p>
@@ -33,7 +33,7 @@ export default function Hero() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg font-medium"
+              className="bg-gradient-to-r from-primary to-tertiary text-white px-6 py-3 rounded-lg font-medium"
               onClick={handleScrollClick}
             >
               Ver Projetos
@@ -42,7 +42,7 @@ export default function Hero() {
               href="#contato"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-gray-800 border border-gray-300 px-6 py-3 rounded-lg font-medium"
+              className="border border-gray-300 px-6 py-3 rounded-lg font-medium"
             >
               Contato
             </motion.a>

@@ -52,7 +52,7 @@ export default function Projects() {
   const [activeProject, setActiveProject] = useState<number | null>(null);
 
   return (
-    <section id="projetos" className="py-20 bg-gray-50">
+    <section id="projetos" className="py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -67,7 +67,7 @@ export default function Projects() {
               Projetos
             </span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="max-w-2xl mx-auto">
             Conheça alguns dos meus trabalhos mais recentes, desenvolvidos com
             foco na experiência do usuário e nas melhores práticas de
             desenvolvimento.
@@ -83,7 +83,7 @@ export default function Projects() {
               transition={{ duration: 0.1, staggerChildren: 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.03 }}
-              className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all will-change-transform"
+              className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all will-change-transform"
               onMouseEnter={() => setActiveProject(project.id)}
               onMouseLeave={() => setActiveProject(null)}
             >
@@ -101,7 +101,7 @@ export default function Projects() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-white text-gray-800 p-2 rounded-full hover:bg-orange-500 hover:text-white transition-colors"
+                        className="bg-card text-foreground p-2 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
                         aria-label="Ver projeto online"
                       >
                         <ExternalLink size={20} />
@@ -110,7 +110,7 @@ export default function Projects() {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-white text-gray-800 p-2 rounded-full hover:bg-orange-500 hover:text-white transition-colors"
+                        className="bg-card text-foreground p-2 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
                         aria-label="Ver código no GitHub"
                       >
                         <Github size={20} />
@@ -120,13 +120,17 @@ export default function Projects() {
                 )}
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
+                <h3 className="text-xl font-bold mb-2 text-foreground">
+                  {project.title}
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full"
+                      className="text-xs bg-accent text-accent-foreground px-2 py-1 rounded-full"
                     >
                       {tag}
                     </span>
