@@ -10,6 +10,7 @@ type Testimonial = {
   name: string;
   role: string;
   company?: string;
+  linkedInUrl?: string;
   avatar: string;
   content: string;
 };
@@ -19,6 +20,7 @@ const testimonials: Testimonial[] = [
     id: 1,
     name: "Muriel Daher",
     role: "Desenvolvedora Front-End",
+    linkedInUrl: "https://www.linkedin.com/in/muriel-daher/",
     avatar: "/imgs/referrals/Muriel.jpeg",
     content: `
       Tive o privilégio de trabalhar com o Flávio, ele é profissional excepcional, dedicado e um 
@@ -37,6 +39,7 @@ const testimonials: Testimonial[] = [
     id: 2,
     name: "Felipe Nário",
     role: "Engenhreiro de Software Sr",
+    linkedInUrl: "https://www.linkedin.com/in/felipenario/",
     avatar: "/imgs/referrals/Felipe.jpeg",
     content: `
       O Flávio é uma daquelas joias raras na nossa área, sendo uma pessoa sempre em busca 
@@ -50,6 +53,7 @@ const testimonials: Testimonial[] = [
     id: 3,
     name: "Cacá Neves",
     role: "Designer de Produto",
+    linkedInUrl: "https://www.linkedin.com/in/prefirocaca/",
     avatar: "/imgs/referrals/Caca.jpeg",
     content: `
       Flavio é uma máquina! Pude acompanhar o comecinho da sua carreira e sou 
@@ -61,6 +65,7 @@ const testimonials: Testimonial[] = [
     id: 4,
     name: "Hebert Sena",
     role: "Tech Manager",
+    linkedInUrl: "https://www.linkedin.com/in/hebert-savio-sena/",
     avatar: "/imgs/referrals/Hebert.jpeg",
     content: `
       É raro encontrar pessoas como o Flavio. Em todos os projetos que trabalhamos juntos, ele mostrou 
@@ -124,7 +129,12 @@ export default function Testimonials() {
               className="bg-card p-8 rounded-xl shadow-md"
             >
               <div className="flex items-center gap-4 mb-6">
-                <div className="relative w-16 h-16 rounded-full overflow-hidden">
+                <a
+                  href={testimonials[currentIndex].linkedInUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative w-16 h-16 rounded-full overflow-hidden"
+                >
                   <Image
                     src={
                       testimonials[currentIndex].avatar || "/placeholder.svg"
@@ -133,18 +143,26 @@ export default function Testimonials() {
                     fill
                     className="object-cover"
                   />
-                </div>
+                </a>
+
                 <div>
-                  <h3 className="text-xl font-bold text-card-foreground">
+                  <a
+                    href={testimonials[currentIndex].linkedInUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xl font-bold text-card-foreground"
+                  >
                     {testimonials[currentIndex].name}
-                  </h3>
+                  </a>
                   <p className="text-muted-foreground">
                     {testimonials[currentIndex].role},{" "}
                     {testimonials[currentIndex].company}
                   </p>
                 </div>
+
                 <Quote className="ml-auto text-primary h-10 w-10 opacity-20" />
               </div>
+
               <p className="text-card-foreground text-lg italic">
                 &quot;{testimonials[currentIndex].content}&quot;
               </p>

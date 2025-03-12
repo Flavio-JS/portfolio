@@ -27,13 +27,24 @@ export default function Hero() {
           </h1>
           <p className="text-xl text-muted-foreground mb-6">
             Desenvolvedor Front-end especializado em criar interfaces modernas,
-            limpas e funcionais.
+            limpas e funcionais.{" "}
+            <span className="bg-gradient-to-r font-bold from-primary to-tertiary bg-clip-text text-transparent">
+              JS
+            </span>{" "}
+            é de{" "}
+            <span className="bg-gradient-to-r font-bold from-primary to-tertiary bg-clip-text text-transparent">
+              Jerônimo Silva
+            </span>{" "}
+            apenas coincidiu de eu programar em{" "}
+            <span className="bg-gradient-to-r font-bold from-primary to-tertiary bg-clip-text text-transparent">
+              Java Script
+            </span>
           </p>
           <div className="flex flex-wrap gap-4">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-primary to-tertiary text-white px-6 py-3 rounded-lg font-medium"
+              className="bg-gradient-to-r from-primary hover:cursor-pointer to-tertiary text-white px-6 py-3 rounded-lg font-medium"
               onClick={handleScrollClick}
             >
               Ver Projetos

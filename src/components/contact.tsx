@@ -297,7 +297,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="mt-6 w-full bg-gradient-to-r from-primary to-tertiary text-primary-foreground py-3 px-6 rounded-lg font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-70"
+                className="mt-6 w-full bg-gradient-to-r hover:cursor-pointer from-primary to-tertiary text-primary-foreground py-3 px-6 rounded-lg font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-70"
               >
                 Enviar mensagem <Send size={18} />
               </button>
