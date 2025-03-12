@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type Testimonial = {
   id: number;
@@ -150,7 +151,11 @@ export default function Testimonials() {
                     href={testimonials[currentIndex].linkedInUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xl font-bold text-card-foreground"
+                    className={cn(
+                      "text-xl font-bold text-card-foreground",
+                      testimonials[currentIndex].linkedInUrl &&
+                        `transition-colors hover:bg-gradient-to-r hover:from-primary hover:to-tertiary hover:bg-clip-text hover:text-transparent`
+                    )}
                   >
                     {testimonials[currentIndex].name}
                   </a>
