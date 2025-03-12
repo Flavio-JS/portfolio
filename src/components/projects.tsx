@@ -102,6 +102,10 @@ export default function Projects() {
               className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all will-change-transform"
               onMouseEnter={() => setActiveProject(project.id)}
               onMouseLeave={() => setActiveProject(null)}
+              onFocus={()=> setActiveProject(project.id)}
+              onBlur={()=> setActiveProject(null)}
+              tabIndex={0}
+              style={{ outline: "none" }}
             >
               <div className="relative h-48 w-full">
                 <Image
