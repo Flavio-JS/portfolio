@@ -18,33 +18,49 @@ type Project = {
 const projects: Project[] = [
   {
     id: 1,
-    title: "E-commerce Moderno",
+    title: "Bank-Dash",
     description:
-      "Loja virtual completa com carrinho de compras, filtros e sistema de pagamento integrado.",
-    tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-    image: "/placeholder.svg?height=400&width=600",
-    liveUrl: "#",
-    githubUrl: "#",
+      "BankDash é um dashboard interativo para visualização e gestão de informações financeiras, incluindo gráficos, previsões e transações.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js"],
+    image: "/imgs/projects/bank-dash.png",
+    liveUrl:
+      "https://bankdash-frontend-73qrl5l1s-flaviojs-projects.vercel.app/dashboard",
+    githubUrl: "https://github.com/Flavio-JS/bankdash-frontend",
   },
   {
     id: 2,
-    title: "Dashboard Analítico",
+    title: "Todo List",
     description:
-      "Painel administrativo com gráficos interativos e visualização de dados em tempo real.",
-    tags: ["React", "TypeScript", "Chart.js", "Tailwind CSS"],
-    image: "/placeholder.svg?height=400&width=600",
-    liveUrl: "#",
-    githubUrl: "#",
+      "Uma aplicação para gerenciar tarefas, permitindo a criação de listas, atribuição de prioridades e marcação de tarefas como concluídas ou pendentes.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
+    image: "/imgs/projects/to-do-list.png",
+    liveUrl: "",
+    githubUrl: "https://github.com/Flavio-JS/to-do-list",
   },
   {
     id: 3,
-    title: "App de Gestão de Tarefas",
-    description:
-      "Aplicativo para gerenciamento de tarefas com recursos de arrastar e soltar e notificações.",
-    tags: ["React", "TypeScript", "Redux", "Tailwind CSS"],
-    image: "/placeholder.svg?height=400&width=600",
+    title: "Esse Portfolio!",
+    description: "Um site pessoal para apresentar meu trabalho e habilidades.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Shadcn UI",
+    ],
+    image: "/imgs/projects/portfolio.png",
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Flavio-JS/portfolio",
+  },
+  {
+    id: 4,
+    title: "Dashboard",
+    description:
+      "Um painel interativo para visualização e gestão de informações financeiras. Inclui resumos de receitas, despesas e investimentos e agenda de reuniões.",
+    tags: ["HTML5", "CSS3", "Material Icons"],
+    image: "/imgs/projects/dashboard.png",
+    liveUrl: "",
+    githubUrl: "https://github.com/Flavio-JS/dashboard",
   },
 ];
 
@@ -62,10 +78,10 @@ export default function Projects() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Meus{" "}
-            <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
-              Projetos
-            </span>
+            <span className="bg-gradient-to-r from-primary to-tertiary bg-clip-text text-transparent">
+              Meus
+            </span>{" "}
+            Projetos
           </h2>
           <p className="max-w-2xl mx-auto">
             Conheça alguns dos meus trabalhos mais recentes, desenvolvidos com
@@ -97,24 +113,45 @@ export default function Projects() {
                 {activeProject === project.id && (
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center p-4">
                     <div className="flex gap-4">
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-card text-foreground p-2 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
-                        aria-label="Ver projeto online"
-                      >
-                        <ExternalLink size={20} />
-                      </a>
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-card text-foreground p-2 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
-                        aria-label="Ver código no GitHub"
-                      >
-                        <Github size={20} />
-                      </a>
+                      {project.liveUrl ? (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-card text-foreground p-2 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
+                          aria-label="Ver projeto online"
+                        >
+                          <ExternalLink size={20} />
+                        </a>
+                      ) : (
+                        <button
+                          className="bg-card text-foreground p-2 rounded-full opacity-50 cursor-not-allowed"
+                          aria-label="Link indisponível"
+                          disabled
+                        >
+                          <ExternalLink size={20} />
+                        </button>
+                      )}
+
+                      {project.githubUrl ? (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-card text-foreground p-2 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
+                          aria-label="Ver código no GitHub"
+                        >
+                          <Github size={20} />
+                        </a>
+                      ) : (
+                        <button
+                          className="bg-card text-foreground p-2 rounded-full opacity-50 cursor-not-allowed"
+                          aria-label="Código indisponível"
+                          disabled
+                        >
+                          <Github size={20} />
+                        </button>
+                      )}
                     </div>
                   </div>
                 )}
@@ -130,7 +167,7 @@ export default function Projects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs bg-accent text-accent-foreground px-2 py-1 rounded-full"
+                      className="text-xs bg-primary text-primary-foreground px-2 py-1 rounded-full"
                     >
                       {tag}
                     </span>

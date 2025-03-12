@@ -29,7 +29,7 @@ export default function Navbar() {
                 href={`#${item.toLowerCase()}`}
                 className={cn(
                   "text-foreground transition-colors",
-                  "hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-500 hover:bg-clip-text hover:text-transparent"
+                  "hover:bg-gradient-to-r hover:from-primary hover:to-tertiary hover:bg-clip-text hover:text-transparent"
                 )}
               >
                 {item}
