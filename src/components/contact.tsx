@@ -14,11 +14,6 @@ export default function Contact() {
     message: "",
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<null | "success" | "error">(
-    null
-  );
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -26,23 +21,22 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
-    // Simulando envio do formulário
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (error) {
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-      // Reset status after 5 seconds
-      setTimeout(() => setSubmitStatus(null), 5000);
-    }
+    const phoneNumber = "5562995170250";
+    const text = encodeURIComponent(
+      `Assunto: ${formData.subject}\n\n
+       Nome: ${formData.name}\n
+       Email: ${formData.email}\n\n
+       Mensagem:\n
+       ${formData.message}\n\n
+       Agradeço pela atenção e aguardo retorno.`
+    );
+
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${text}`;
+
+    window.open(whatsappURL, "_blank");
   };
 
   return (
@@ -303,30 +297,10 @@ export default function Contact() {
 
               <button
                 type="submit"
-                disabled={isSubmitting}
                 className="mt-6 w-full bg-gradient-to-r from-primary to-tertiary text-primary-foreground py-3 px-6 rounded-lg font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-70"
               >
-                {isSubmitting ? (
-                  <>Enviando...</>
-                ) : (
-                  <>
-                    Enviar mensagem <Send size={18} />
-                  </>
-                )}
+                Enviar mensagem <Send size={18} />
               </button>
-
-              {submitStatus === "success" && (
-                <div className="mt-4 p-3 bg-green-100 text-green-700 rounded-lg">
-                  Mensagem enviada com sucesso! Entrarei em contato em breve.
-                </div>
-              )}
-
-              {submitStatus === "error" && (
-                <div className="mt-4 p-3 bg-red-100 text-red-700 rounded-lg">
-                  Ocorreu um erro ao enviar a mensagem. Por favor, tente
-                  novamente.
-                </div>
-              )}
             </form>
           </motion.div>
         </div>
