@@ -49,7 +49,7 @@ const projects: Project[] = [
       "Shadcn UI",
     ],
     image: "/imgs/projects/portfolio.png",
-    liveUrl: "https://portfolio-sage-iota-83.vercel.app/",
+    liveUrl: "https://www.flaviojs.com/",
     githubUrl: "https://github.com/Flavio-JS/portfolio",
   },
   {
