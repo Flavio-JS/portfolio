@@ -18,27 +18,28 @@ type Project = {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Bank-Dash",
+    title: "Supplier Control",
     description:
-      "BankDash é um dashboard interativo para visualização e gestão de informações financeiras, incluindo gráficos, previsões e transações.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js"],
-    image: "/imgs/projects/bank-dash.png",
-    liveUrl:
-      "https://bankdash-frontend-73qrl5l1s-flaviojs-projects.vercel.app/dashboard",
-    githubUrl: "https://github.com/Flavio-JS/bankdash-frontend",
+      "Uma aplicação CRUD para gerenciar fornecedores, com funcionalidades como cadastro, edição, exclusão, busca por nome e preenchimento automático de endereço via API ViaCEP.",
+    tags: [
+      "React.js",
+      "TypeScript",
+      "Vite",
+      "Styled Components",
+      "Radix UI",
+      "React Hook Form",
+      "Yup",
+      "Axios",
+      "JSON Server",
+      "Lucide React",
+      "UUID",
+    ],
+    image: "/imgs/projects/supplier-control.png",
+    liveUrl: "",
+    githubUrl: "https://github.com/Flavio-JS/supplier-control",
   },
   {
     id: 2,
-    title: "Todo List",
-    description:
-      "Uma aplicação para gerenciar tarefas, permitindo a criação de listas, atribuição de prioridades e marcação de tarefas como concluídas ou pendentes.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
-    image: "/imgs/projects/to-do-list.png",
-    liveUrl: "",
-    githubUrl: "https://github.com/Flavio-JS/to-do-list",
-  },
-  {
-    id: 3,
     title: "Esse Portfolio!",
     description: "Um site pessoal para apresentar meu trabalho e habilidades.",
     tags: [
@@ -53,7 +54,28 @@ const projects: Project[] = [
     githubUrl: "https://github.com/Flavio-JS/portfolio",
   },
   {
+    id: 3,
+    title: "Bank-Dash",
+    description:
+      "BankDash é um dashboard interativo para visualização e gestão de informações financeiras, incluindo gráficos, previsões e transações.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js"],
+    image: "/imgs/projects/bank-dash.png",
+    liveUrl:
+      "https://bankdash-frontend-73qrl5l1s-flaviojs-projects.vercel.app/dashboard",
+    githubUrl: "https://github.com/Flavio-JS/bankdash-frontend",
+  },
+  {
     id: 4,
+    title: "Todo List",
+    description:
+      "Uma aplicação para gerenciar tarefas, permitindo a criação de listas, atribuição de prioridades e marcação de tarefas como concluídas ou pendentes.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma"],
+    image: "/imgs/projects/to-do-list.png",
+    liveUrl: "",
+    githubUrl: "https://github.com/Flavio-JS/to-do-list",
+  },
+  {
+    id: 5,
     title: "Dashboard",
     description:
       "Um painel interativo para visualização e gestão de informações financeiras. Inclui resumos de receitas, despesas e investimentos e agenda de reuniões.",
@@ -102,8 +124,8 @@ export default function Projects() {
               className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all will-change-transform"
               onMouseEnter={() => setActiveProject(project.id)}
               onMouseLeave={() => setActiveProject(null)}
-              onFocus={()=> setActiveProject(project.id)}
-              onBlur={()=> setActiveProject(null)}
+              onFocus={() => setActiveProject(project.id)}
+              onBlur={() => setActiveProject(null)}
               tabIndex={0}
               style={{ outline: "none" }}
             >
