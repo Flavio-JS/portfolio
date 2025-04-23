@@ -8,34 +8,42 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Flávio JS | Desenvolvedor Front-end",
+  title: "Flávio JS | Desenvolvedor Front-end e Criador de Interfaces Web",
   description:
-    "Portfólio profissional de Flávio JS, desenvolvedor front-end especializado em React, Next.js, TypeScript e Tailwind CSS.",
+    "Portfólio de Flávio JS, desenvolvedor front-end focado na criação de sites modernos, rápidos e responsivos com React, Next.js e tecnologias de ponta. Soluções para negócios e projetos digitais que buscam performance e design profissional.",
   keywords: [
     "Desenvolvedor Front-end",
+    "Criação de sites",
     "React",
     "Next.js",
     "TypeScript",
     "Tailwind CSS",
-    "Portfólio",
+    "Sites modernos",
+    "Portfólio de desenvolvedor",
+    "Interface responsiva",
+    "Desenvolvedor freelancer",
     "Flávio JS",
   ],
   openGraph: {
-    title: "Flávio JS | Desenvolvedor Front-end",
+    title: "Flávio JS | Desenvolvedor Front-end e Criador de Interfaces",
     description:
-      "Portfólio profissional de Flávio JS, especialista em React, Next.js e TypeScript.",
+      "Veja os projetos de Flávio JS — sites e aplicações construídos com foco em performance, experiência do usuário e tecnologia moderna.",
     url: "https://www.flaviojs.com/",
     siteName: "Flávio JS",
     images: [
       {
-        url: "https://www.flaviojs.com/imgs/projects/portfolio.png",
+        url: "https://www.flaviojs.com/imgs/flavio-js.jpeg",
         width: 1200,
         height: 630,
-        alt: "Flávio JS - Desenvolvedor Front-end",
+        alt: "Portfólio de Flávio JS - Desenvolvedor Front-end e Criador de Interfaces",
       },
     ],
     type: "website",
+    locale: "pt_BR",
   },
+  authors: [
+    { name: "Flávio JS", url: "https://www.instagram.com/flavio.js.softwares" },
+  ],
 };
 
 export default function RootLayout({
