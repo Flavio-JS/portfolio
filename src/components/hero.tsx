@@ -26,7 +26,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className="text-xl text-muted-foreground mb-6">
-            Desenvolvedor Front-end especializado em criar interfaces modernas,
+            Desenvolvedor Web especializado em criar interfaces modernas,
             limpas e funcionais.{" "}
             <span className="bg-gradient-to-r font-bold from-primary to-tertiary bg-clip-text text-transparent">
               JS
@@ -69,7 +69,7 @@ export default function Hero() {
           <div className="relative w-full max-w-[300px] md:max-w-[500px] aspect-square rounded-full overflow-hidden">
             <Image
               src="/imgs/flavio-js.jpeg"
-              alt="Flávio JS - Desenvolvedor Front-end"
+              alt="Flávio JS - Desenvolvedor Web"
               fill
               className="object-cover rounded-lg"
               priority
