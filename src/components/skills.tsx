@@ -131,6 +131,16 @@ export default function Skills() {
             </motion.div>
           ))}
         </div>
+        <div className="flex justify-center mt-8">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-gradient-to-r from-primary hover:cursor-pointer to-tertiary text-white px-6 py-3 rounded-lg font-medium"
+            onClick={() => window.open("/curriculo.pdf", "_blank")}
+          >
+            Visualizar CV
+          </motion.button>
+        </div>
       </div>
     </section>
   );
