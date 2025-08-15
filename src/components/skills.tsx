@@ -1,82 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Layout, Server, Zap } from "lucide-react";
-
-const skills = [
-  {
-    icon: <Layout className="h-6 w-6" />,
-    title: "Front-end",
-    description:
-      "Desenvolvimento de interfaces modernas, responsivas e performáticas com foco em experiência do usuário.",
-    technologies: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "Redux",
-      "Zustand",
-      "React Query",
-      "Recharts",
-      "Chart.js",
-      "Shadcn UI",
-      "Tailwind CSS",
-      "Framer Motion",
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-    ],
-  },
-  {
-    icon: <Zap className="h-6 w-6" />,
-    title: "UI/UX",
-    description:
-      "Criação de interfaces intuitivas e acessíveis, garantindo uma experiência de usuário fluida e responsiva.",
-    technologies: [
-      "Figma",
-      "Tailwind CSS",
-      "Styled Components",
-      "Framer Motion",
-      "Radix UI",
-      "Shadcn UI",
-      "Design Responsivo",
-      "Acessibilidade (a11y)",
-    ],
-  },
-  {
-    icon: <Server className="h-6 w-6" />,
-    title: "Back-end",
-    description:
-      "Desenvolvimento de APIs eficientes e escaláveis, com integração segura e modelagem de dados otimizada.",
-    technologies: [
-      "Node.js",
-      "NestJS",
-      "Prisma ORM",
-      "Express",
-      "API REST",
-      "SQLite",
-      "PostgreSQL",
-      "Supabase",
-      "Docker",
-      "JWT",
-    ],
-  },
-  {
-    icon: <Code className="h-6 w-6" />,
-    title: "Ferramentas",
-    description:
-      "Aprimoramento do fluxo de desenvolvimento com ferramentas modernas e metodologias ágeis.",
-    technologies: [
-      "Git",
-      "GitHub",
-      "VS Code",
-      "Jest",
-      "React Testing Library",
-      "Postman",
-      "Vercel",
-      "CI/CD",
-    ],
-  },
-];
+import { TechCarousel } from "./tech-carousel";
+import { skills } from "@/constants/skills";
+import { techIcons } from "@/constants/techIcons";
 
 export default function Skills() {
   return (
@@ -101,7 +28,9 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <TechCarousel techItems={techIcons} autoPlaySpeed={0.8} />
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 xl:grid-cols-4">
           {skills.map((skill, index) => (
             <motion.div
               key={index}
