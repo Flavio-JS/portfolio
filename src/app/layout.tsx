@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
-import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -55,7 +54,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="scroll-smooth">
       <body className={cn(inter.className, "max-w-screen overflow-x-hidden")}>
-        <ThemeProvider>
           <Navbar />
           {children}
           <footer className="bg-secondary text-secondary-foreground py-8">
@@ -66,7 +64,6 @@ export default function RootLayout({
               </p>
             </div>
           </footer>
-        </ThemeProvider>
       </body>
     </html>
   );

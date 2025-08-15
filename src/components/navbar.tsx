@@ -1,15 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useTheme } from "next-themes";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const savedMode = localStorage.getItem("darkMode");
+    const systemPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    const initialMode = savedMode ? JSON.parse(savedMode) : systemPrefersDark;
+    setDarkMode(initialMode);
+  }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
 
   return (
     <header className="fixed top-0 w-full z-50 bg-color-card/90 backdrop-blur-sm shadow-sm transition-all duration-300">
@@ -42,8 +60,9 @@ export default function Navbar() {
         <div className="items-center gap-4 hidden md:flex">
           <Sun size={20} />
           <Switch
-            checked={theme === "dark"}
-            onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
+            checked={darkMode}
+            onCheckedChange={setDarkMode}
+            aria-label="Toggle dark mode"
           />
           <Moon size={20} />
         </div>
@@ -78,16 +97,15 @@ export default function Navbar() {
             )}
             <li>
               {/* Botão de Tema */}
-              <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className={cn(
-                  "rounded-full transition-colors",
-                  "hover:cursor-pointer hover:text-primary"
-                )}
-                aria-label="Alternar tema"
-              >
-                {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
+              <div className="flex items-center gap-4 py-2">
+                <Sun size={20} />
+                <Switch
+                  checked={darkMode}
+                  onCheckedChange={setDarkMode}
+                  aria-label="Toggle dark mode"
+                />
+                <Moon size={20} />
+              </div>
             </li>
           </ul>
         </div>
