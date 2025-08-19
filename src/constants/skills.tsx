@@ -5,7 +5,7 @@ export const skills = [
     icon: <Layout className="h-6 w-6" />,
     title: "Front-end",
     description:
-      "Desenvolvimento de interfaces modernas, responsivas e acessíveis (WCAG 2.1) com foco em performance e tomada de decisão estratégica.",
+      "Desenvolvimento de interfaces modernas, responsivas e acessíveis com foco em performance e tomada de decisão estratégica.",
     technologies: [
       "React.js",
       "Next.js",
@@ -35,7 +35,6 @@ export const skills = [
       "Tailwind CSS",
       "Design System",
       "Componentização",
-      "Acessibilidade (WCAG 2.1)",
       "Radix UI",
       "Shadcn UI",
       "Responsividade",
