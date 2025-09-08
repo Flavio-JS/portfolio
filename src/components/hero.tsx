@@ -68,7 +68,7 @@ export default function Hero() {
         >
           <div className="relative w-full max-w-[300px] md:max-w-[500px] aspect-square rounded-full overflow-hidden">
             <Image
-              src="/imgs/flavio-js.jpeg"
+              src="/imgs/foto_profissional.jpg"
               alt="Flávio JS - Desenvolvedor Web"
               fill
               className="object-cover rounded-lg"

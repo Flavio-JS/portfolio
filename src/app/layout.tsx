@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "Flávio JS",
     images: [
       {
-        url: "https://www.flaviojs.com/imgs/flavio-js.jpeg",
+        url: "https://www.flaviojs.com/imgs/foto_profissional.jpg",
         width: 1200,
         height: 630,
         alt: "Portfólio de Flávio JS - Desenvolvedor Web e Criador de Interfaces",
